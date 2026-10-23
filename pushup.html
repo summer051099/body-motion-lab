@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f5f2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23234a3a'/%3E%3Ctext x='9' y='30' fill='white' font-size='29' font-family='Georgia'%3EB%3C/text%3E%3C/svg%3E" />
+  <title>Body Motion Lab · 俯卧撑</title>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/"><span class="brand-mark">B.</span><span>BODY <b>MOTION LAB</b></span></a><span class="top-caption">ANATOMY / CONTROLLED MOTION</span><span class="local-tag"><i></i>本地渲染 · 无生成 API</span></header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="eyebrow">MOVEMENT STUDY / 02</div>
+      <h1>一次完整的<br>俯卧撑。</h1>
+      <p class="intro">固定手掌与脚趾，以连续的关节运动完成下降、推起和回到起点。</p>
+      <section><h2><span>01</span> 动作控制</h2>
+        <button id="play" class="primary" disabled>播放完整动作 <span>3 s</span></button>
+        <div class="phase-head"><label for="phase">动作进度</label><output id="phase-value">0%</output></div>
+        <input id="phase" type="range" min="0" max="1000" step="1" value="0" disabled />
+        <div class="range-ticks"><span>起始</span><span>最低点</span><span>复位</span></div>
+        <div class="pose-stops"><button data-phase="0">高位</button><button data-phase="0.25">下降</button><button data-phase="0.5">低位</button><button data-phase="0.75">推起</button></div>
+        <label class="field-label" for="duration">单次时长</label><select id="duration"><option value="3" selected>3 秒</option><option value="4">4 秒</option><option value="6">6 秒 · 慢速检查</option></select>
+      </section>
+      <section><h2><span>02</span> 肌群参与示意</h2>
+        <div class="role-legend"><span><i class="primary-dot"></i>深红 · 主要推起</span><span><i class="support-dot"></i>浅红 · 辅助／稳定</span></div><div class="muscle-list"><div><i></i><span>胸大肌</span><small>Pectoralis major</small></div><div><i></i><span>三角肌前束</span><small>Anterior deltoid</small></div><div><i></i><span>肱三头肌</span><small>Triceps brachii</small></div></div>
+        <details class="support-muscles"><summary>辅助与稳定肌群</summary><p>前锯肌、背阔肌、中下斜方肌、胸腰段竖脊肌与多裂肌、腹壁肌群。</p></details>
+        <label class="toggle-row"><span>显示肌肉高亮</span><input id="highlight-enabled" type="checkbox" checked /></label>
+        <label class="toggle-row"><span>显示辅助／稳定参与</span><input id="support-enabled" type="checkbox" checked /></label>
+      </section>
+      <section><h2><span>03</span> 检查视图</h2>
+        <label class="toggle-row"><span>显示解剖骨骼</span><input id="bones" type="checkbox" checked /></label>
+        <label class="toggle-row"><span>显示动作骨架</span><input id="joints" type="checkbox" /></label>
+        <label class="toggle-row"><span>网格线框</span><input id="wireframe" type="checkbox" /></label>
+      </section>
+      <p class="scope-note">颜色用于肌群作用分类，不代表实测激活强度。仅展示部分参与肌群；灰色不代表完全没有参与。</p>
+      <details class="credits"><summary>模型来源与许可</summary><p>基于 <a href="https://github.com/JohanBellander/BodyExplorer" target="_blank" rel="noreferrer">BodyExplorer</a>。BodyParts3D © DBCLS，CC BY-SA 2.1 Japan；Z-Anatomy / Gauthier Kervyn，CC BY-SA 4.0。添加了关节绑定、权重、手足校准和修形。<a href="/elbow.html">早期肘部实验</a></p></details>
+    </aside>
+    <main class="stage">
+      <div class="stage-header"><div><span class="eyebrow">PUSH-UP / ONE COMPLETE REPETITION</span><h2>俯卧撑 · 全程演示</h2></div><span id="status" role="status">正在载入模型…</span></div>
+      <div class="main-view"><canvas id="body-canvas" aria-label="俯卧撑全身演示，可以旋转和缩放"></canvas><div class="view-label">01 / 全身视图</div><div id="phase-name" class="phase-tag">高位支撑</div><div class="view-toolbar"><button data-view="oblique" class="active">侧前方</button><button data-view="side">正侧面</button><button data-view="front">正前方</button><button data-view="back">背部</button><button data-view="upper">肩臂近景</button></div></div>
+      <div class="stage-footer"><span><i class="legend-dot"></i>深红 / 主要推起 <i class="legend-dot support-dot"></i>浅红 / 辅助或稳定 <span class="legend-neutral">灰色 / 其余结构</span></span><span>拖动旋转 · 滚轮缩放</span></div>
+      <div class="inspection-row"><div class="detail-view"><canvas id="detail-canvas" aria-label="肩、肘及手掌接触近景"></canvas><div class="view-label">02 / 肩臂与手掌</div></div><div class="metrics"><div class="metric"><span>肘关节屈曲</span><strong id="elbow-value">—</strong><small>左右对称运动</small></div><div class="metric"><span>手掌最低点</span><strong id="contact-value">—</strong><small>距地面</small></div><div class="metric"><span>动作进度</span><strong id="cycle-value">0.00 / 3.00 s</strong><small id="state-label">准备就绪</small></div></div></div>
+      <div id="error" role="alert" hidden></div><div id="loading"><div class="loading-line"></div><p id="loading-text">正在载入解剖网格…</p></div>
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

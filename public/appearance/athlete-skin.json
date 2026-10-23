@@ -1,0 +1,1675 @@
+{
+  "binary": "athlete-skin.bin",
+  "attributes": {
+    "position": {
+      "offset": 0,
+      "length": 249924,
+      "itemSize": 3,
+      "type": "Float32Array"
+    },
+    "normal": {
+      "offset": 999696,
+      "length": 249924,
+      "itemSize": 3,
+      "type": "Float32Array"
+    },
+    "skinIndex": {
+      "offset": 1999392,
+      "length": 333232,
+      "itemSize": 4,
+      "type": "Uint16Array"
+    },
+    "skinWeight": {
+      "offset": 2665856,
+      "length": 333232,
+      "itemSize": 4,
+      "type": "Float32Array"
+    },
+    "rigLinearBlend": {
+      "offset": 3998784,
+      "length": 83308,
+      "itemSize": 1,
+      "type": "Float32Array"
+    },
+    "rigQuadEnvelope": {
+      "offset": 4332016,
+      "length": 166616,
+      "itemSize": 2,
+      "type": "Float32Array"
+    },
+    "muscleIds": {
+      "offset": 4998480,
+      "length": 333232,
+      "itemSize": 4,
+      "type": "Float32Array"
+    },
+    "muscleWeights": {
+      "offset": 6331408,
+      "length": 333232,
+      "itemSize": 4,
+      "type": "Float32Array"
+    }
+  },
+  "index": {
+    "offset": 7664336,
+    "length": 499860,
+    "itemSize": 1,
+    "type": "Uint32Array"
+  },
+  "morphs": [
+    {
+      "offset": 9663776,
+      "length": 249924,
+      "itemSize": 3,
+      "type": "Float32Array"
+    },
+    {
+      "offset": 10663472,
+      "length": 249924,
+      "itemSize": 3,
+      "type": "Float32Array"
+    },
+    {
+      "offset": 11663168,
+      "length": 249924,
+      "itemSize": 3,
+      "type": "Float32Array"
+    },
+    {
+      "offset": 12662864,
+      "length": 249924,
+      "itemSize": 3,
+      "type": "Float32Array"
+    },
+    {
+      "offset": 13662560,
+      "length": 249924,
+      "itemSize": 3,
+      "type": "Float32Array"
+    }
+  ],
+  "registry": [
+    "abdominal part of left pectoralis major",
+    "abdominal part of right pectoralis major",
+    "abductor digiti minimi of left foot",
+    "abductor digiti minimi of left hand",
+    "abductor digiti minimi of right foot",
+    "abductor digiti minimi of right hand",
+    "acromial part of left deltoid",
+    "acromial part of right deltoid",
+    "ascending part of left trapezius",
+    "ascending part of right trapezius",
+    "clavicular part of left deltoid",
+    "clavicular part of left pectoralis major",
+    "clavicular part of right deltoid",
+    "clavicular part of right pectoralis major",
+    "descending part of left trapezius",
+    "descending part of right trapezius",
+    "diaphragm",
+    "external anal sphincter",
+    "external anal sphincter (2)",
+    "external anal sphincter (3)",
+    "external intercostal muscle",
+    "first lumbrical of left foot",
+    "first lumbrical of right foot",
+    "first plantar interosseous of left foot",
+    "first plantar interosseous of right foot",
+    "flexor digiti minimi brevis of left foot",
+    "flexor digiti minimi brevis of left hand",
+    "flexor digiti minimi brevis of right foot",
+    "flexor digiti minimi brevis of right hand",
+    "flexor retinaculum of left wrist",
+    "flexor retinaculum of right wrist",
+    "fourth lumbrical of left foot",
+    "fourth lumbrical of right foot",
+    "humeral head of left flexor carpi ulnaris",
+    "humeral head of left pronator teres",
+    "humeral head of right flexor carpi ulnaris",
+    "humeral head of right pronator teres",
+    "inferior oblique part of left longus colli",
+    "innermost intercostal muscle",
+    "internal intercostal muscle",
+    "interosseous membrane of left forearm",
+    "interosseous membrane of left leg",
+    "interosseous membrane of right forearm",
+    "interosseous membrane of right leg",
+    "lateral head of left flexor hallucis brevis",
+    "lateral head of left gastrocnemius",
+    "lateral head of left triceps brachii",
+    "lateral head of right flexor hallucis brevis",
+    "lateral head of right gastrocnemius",
+    "lateral head of right triceps brachii",
+    "lateral lumbar intertransversarius",
+    "left abductor hallucis",
+    "left abductor pollicis brevis",
+    "left abductor pollicis longus",
+    "left adductor brevis",
+    "left adductor longus",
+    "left adductor magnus",
+    "left adductor minimus",
+    "left anconeus",
+    "left anterior layer of thoracolumbar fascia",
+    "left arytenoid cartilage",
+    "left brachialis",
+    "left brachioradialis",
+    "left calcaneal tendon",
+    "left coccygeus",
+    "left coccygeus (2)",
+    "left coracobrachialis",
+    "left corrugator supercilii",
+    "left deep part of masseter",
+    "left depressor anguli oris",
+    "left depressor labii inferioris",
+    "left digastric",
+    "left digastric (2)",
+    "left digastric (3)",
+    "left extensor carpi radialis brevis",
+    "left extensor carpi radialis longus",
+    "left extensor carpi ulnaris",
+    "left extensor carpi ulnaris (2)",
+    "left extensor digiti minimi",
+    "left extensor digitorum",
+    "left extensor digitorum longus",
+    "left extensor hallucis brevis",
+    "left extensor hallucis longus",
+    "left extensor indicis",
+    "left extensor pollicis brevis",
+    "left extensor pollicis longus",
+    "left external oblique",
+    "left fibularis brevis",
+    "left fibularis longus",
+    "left fibularis tertius",
+    "left flexor accessorius",
+    "left flexor carpi radialis",
+    "left flexor digitorum brevis",
+    "left flexor digitorum longus",
+    "left flexor digitorum profundus",
+    "left flexor digitorum superficialis",
+    "left flexor digitorum superficialis (2)",
+    "left flexor hallucis longus",
+    "left flexor pollicis brevis",
+    "left flexor pollicis longus",
+    "left frontalis",
+    "left gemellus inferior",
+    "left gemellus superior",
+    "left geniohyoid",
+    "left gluteus maximus",
+    "left gluteus medius",
+    "left gluteus minimus",
+    "left gracilis",
+    "left iliacus",
+    "left iliococcygeus",
+    "left iliococcygeus (2)",
+    "left iliocostalis cervicis",
+    "left iliocostalis lumborum",
+    "left iliocostalis thoracis",
+    "left iliotibial tract",
+    "left inferior head of lateral pterygoid",
+    "left inferior oblique",
+    "left inferior rectus",
+    "left infraspinatus muscle",
+    "left internal oblique",
+    "left interspinalis thoracis",
+    "left lateral crico-arytenoid",
+    "left lateral rectus",
+    "left latissimus dorsi",
+    "left levator labii superioris",
+    "left levator palpebrae superioris",
+    "left levator scapulae",
+    "left levator veli palatini",
+    "left long plantar ligament",
+    "left longissimus capitis",
+    "left longissimus cervicis",
+    "left longissimus thoracis",
+    "left longus capitis",
+    "left medial pterygoid",
+    "left medial rectus",
+    "left mentalis",
+    "left middle layer of thoracolumbar fascia",
+    "left multifidus cervicis",
+    "left multifidus lumborum",
+    "left multifidus thoracis",
+    "left mylohyoid",
+    "left nasalis",
+    "left oblique arytenoid",
+    "left obturator externus",
+    "left obturator internus",
+    "left omohyoid",
+    "left opponens pollicis",
+    "left orbicularis oris",
+    "left orbital part of orbicularis oculi",
+    "left palmaris longus",
+    "left palpebral part of orbicularis oculi",
+    "left pectineus",
+    "left pectoralis minor",
+    "left piriformis",
+    "left plantaris",
+    "left platysma",
+    "left popliteus",
+    "left posterior crico-arytenoid",
+    "left posterior layer of thoracolumbar fascia",
+    "left procerus",
+    "left pronator quadratus",
+    "left psoas major",
+    "left pubococcygeus",
+    "left pubococcygeus (2)",
+    "left puborectalis",
+    "left puborectalis (2)",
+    "left quadratus femoris",
+    "left quadratus lumborum",
+    "left rectus abdominis",
+    "left rectus capitis anterior",
+    "left rectus capitis lateralis",
+    "left rectus capitis posterior major",
+    "left rectus capitis posterior minor",
+    "left rectus femoris",
+    "left rhomboid major",
+    "left rhomboid minor",
+    "left risorius",
+    "left rotatores",
+    "left sartorius",
+    "left scalenus anterior",
+    "left scalenus medius",
+    "left scalenus posterior",
+    "left semimembranosus",
+    "left semispinalis capitis",
+    "left semispinalis cervicis",
+    "left semispinalis thoracis",
+    "left semitendinosus",
+    "left serratus anterior",
+    "left serratus posterior inferior",
+    "left serratus posterior superior",
+    "left soleus",
+    "left spinalis thoracis",
+    "left splenius capitis",
+    "left splenius cervicis",
+    "left sternocleidomastoid",
+    "left sternohyoid",
+    "left sternothyroid",
+    "left stylohyoid",
+    "left subclavius",
+    "left subscapularis",
+    "left superficial part of masseter",
+    "left superior head of lateral pterygoid",
+    "left superior oblique",
+    "left superior rectus",
+    "left supinator",
+    "left supraspinatus",
+    "left temporalis",
+    "left tensor fasciae latae",
+    "left tensor veli palatini",
+    "left teres major",
+    "left teres minor",
+    "left thyro-arytenoid",
+    "left thyro-arytenoid (2)",
+    "left thyrohyoid",
+    "left tibialis anterior",
+    "left tibialis posterior",
+    "left transversus abdominis",
+    "left transversus thoracis",
+    "left vastus intermedius",
+    "left vastus lateralis",
+    "left vastus medialis",
+    "left zygomaticus major",
+    "left zygomaticus minor",
+    "long head of left biceps brachii",
+    "long head of left biceps femoris",
+    "long head of left triceps brachii",
+    "long head of right biceps brachii",
+    "long head of right biceps femoris",
+    "long head of right triceps brachii",
+    "medial head of left flexor hallucis brevis",
+    "medial head of left gastrocnemius",
+    "medial head of left triceps brachii",
+    "medial head of right flexor hallucis brevis",
+    "medial head of right gastrocnemius",
+    "medial head of right triceps brachii",
+    "medial lumbar intertransversarius",
+    "median cricothyroid ligament",
+    "oblique head of left adductor hallucis",
+    "oblique head of left adductor pollicis",
+    "oblique head of right adductor hallucis",
+    "oblique head of right adductor pollicis",
+    "oblique part of left cricothyroid",
+    "oblique part of right cricothyroid",
+    "opponens digiti minimi of left foot",
+    "opponens digiti minimi of left hand",
+    "opponens digiti minimi of right foot",
+    "opponens digiti minimi of right hand",
+    "right abductor hallucis",
+    "right abductor pollicis brevis",
+    "right abductor pollicis longus",
+    "right adductor brevis",
+    "right adductor longus",
+    "right adductor magnus",
+    "right adductor minimus",
+    "right anconeus",
+    "right anterior layer of thoracolumbar fascia",
+    "right arytenoid cartilage",
+    "right brachialis",
+    "right brachioradialis",
+    "right calcaneal tendon",
+    "right coccygeus",
+    "right coracobrachialis",
+    "right corrugator supercilii",
+    "right deep part of masseter",
+    "right depressor anguli oris",
+    "right depressor labii inferioris",
+    "right digastric",
+    "right digastric (2)",
+    "right extensor carpi radialis brevis",
+    "right extensor carpi radialis longus",
+    "right extensor carpi ulnaris",
+    "right extensor carpi ulnaris (2)",
+    "right extensor digiti minimi",
+    "right extensor digitorum",
+    "right extensor digitorum longus",
+    "right extensor hallucis brevis",
+    "right extensor hallucis longus",
+    "right extensor indicis",
+    "right extensor pollicis brevis",
+    "right extensor pollicis longus",
+    "right external oblique",
+    "right fibularis brevis",
+    "right fibularis longus",
+    "right fibularis tertius",
+    "right flexor accessorius",
+    "right flexor carpi radialis",
+    "right flexor digitorum brevis",
+    "right flexor digitorum longus",
+    "right flexor digitorum profundus",
+    "right flexor digitorum superficialis",
+    "right flexor digitorum superficialis (2)",
+    "right flexor hallucis longus",
+    "right flexor pollicis brevis",
+    "right flexor pollicis longus",
+    "right frontalis",
+    "right gemellus inferior",
+    "right gemellus superior",
+    "right geniohyoid",
+    "right gluteus maximus",
+    "right gluteus medius",
+    "right gluteus minimus",
+    "right gracilis",
+    "right iliacus",
+    "right iliococcygeus",
+    "right iliocostalis cervicis",
+    "right iliocostalis lumborum",
+    "right iliocostalis thoracis",
+    "right iliotibial tract",
+    "right inferior head of lateral pterygoid",
+    "right inferior oblique",
+    "right inferior rectus",
+    "right infraspinatus muscle",
+    "right intermediate tendon",
+    "right internal oblique",
+    "right interspinalis thoracis",
+    "right lateral crico-arytenoid",
+    "right lateral rectus",
+    "right latissimus dorsi",
+    "right levator labii superioris",
+    "right levator palpebrae superioris",
+    "right levator scapulae",
+    "right levator veli palatini",
+    "right long plantar ligament",
+    "right longissimus capitis",
+    "right longissimus cervicis",
+    "right longissimus thoracis",
+    "right longus capitis",
+    "right medial pterygoid",
+    "right medial rectus",
+    "right mentalis",
+    "right middle layer of thoracolumbar fascia",
+    "right multifidus cervicis",
+    "right multifidus lumborum",
+    "right multifidus thoracis",
+    "right mylohyoid",
+    "right nasalis",
+    "right oblique arytenoid",
+    "right obturator externus",
+    "right obturator internus",
+    "right omohyoid",
+    "right opponens pollicis",
+    "right orbicularis oris",
+    "right orbital part of orbicularis oculi",
+    "right palmaris longus",
+    "right palpebral part of orbicularis oculi",
+    "right pectineus",
+    "right pectoralis minor",
+    "right piriformis",
+    "right plantaris",
+    "right platysma",
+    "right popliteus",
+    "right posterior crico-arytenoid",
+    "right posterior layer of thoracolumbar fascia",
+    "right procerus",
+    "right pronator quadratus",
+    "right psoas major",
+    "right pubococcygeus",
+    "right puborectalis",
+    "right quadratus femoris",
+    "right quadratus lumborum",
+    "right rectus abdominis",
+    "right rectus capitis anterior",
+    "right rectus capitis lateralis",
+    "right rectus capitis posterior major",
+    "right rectus capitis posterior minor",
+    "right rectus femoris",
+    "right rhomboid major",
+    "right rhomboid minor",
+    "right risorius",
+    "right rotatores",
+    "right sartorius",
+    "right scalenus anterior",
+    "right scalenus medius",
+    "right scalenus posterior",
+    "right semimembranosus",
+    "right semispinalis capitis",
+    "right semispinalis cervicis",
+    "right semispinalis thoracis",
+    "right semitendinosus",
+    "right serratus anterior",
+    "right serratus posterior inferior",
+    "right serratus posterior superior",
+    "right soleus",
+    "right spinalis thoracis",
+    "right splenius capitis",
+    "right splenius cervicis",
+    "right sternocleidomastoid",
+    "right sternohyoid",
+    "right sternothyroid",
+    "right stylohyoid",
+    "right subclavius",
+    "right subscapularis",
+    "right superficial part of masseter",
+    "right superior head of lateral pterygoid",
+    "right superior oblique",
+    "right superior rectus",
+    "right supinator",
+    "right supraspinatus",
+    "right temporalis",
+    "right tensor fasciae latae",
+    "right tensor veli palatini",
+    "right teres major",
+    "right teres minor",
+    "right thyro-arytenoid",
+    "right thyro-arytenoid (2)",
+    "right thyrohyoid",
+    "right tibialis anterior",
+    "right tibialis posterior",
+    "right transversus abdominis",
+    "right transversus thoracis",
+    "right vastus intermedius",
+    "right vastus lateralis",
+    "right vastus medialis",
+    "right zygomaticus major",
+    "right zygomaticus minor",
+    "second lumbrical of left foot",
+    "second lumbrical of right foot",
+    "second plantar interosseous of left foot",
+    "second plantar interosseous of right foot",
+    "set of anterior cervical intertransversarii",
+    "set of dorsal interossei of left hand",
+    "set of dorsal interossei of right hand",
+    "set of interspinales cervicis",
+    "set of interspinales lumborum",
+    "set of left levatores costarum breves",
+    "set of left levatores costarum longi",
+    "set of lumbricals of left hand",
+    "set of lumbricals of right hand",
+    "set of palmar interossei of left hand",
+    "set of palmar interossei of right hand",
+    "set of posterior cervical intertransversarii",
+    "set of right levatores costarum breves",
+    "set of right levatores costarum longi",
+    "short head of left biceps brachii",
+    "short head of left biceps femoris",
+    "short head of right biceps brachii",
+    "short head of right biceps femoris",
+    "spinal part of left deltoid",
+    "spinal part of right deltoid",
+    "spinalis",
+    "sternocostal part of left pectoralis major",
+    "sternocostal part of right pectoralis major",
+    "straight part of left cricothyroid",
+    "straight part of right cricothyroid",
+    "superficial head of left flexor pollicis brevis",
+    "superficial head of right flexor pollicis brevis",
+    "superior oblique part of left longus colli",
+    "tendinous arch of levator ani",
+    "tendinous arch of levator ani (2)",
+    "tendinous arch of levator ani (3)",
+    "tendon of right levator palpebrae superioris",
+    "third lumbrical of left foot",
+    "third lumbrical of right foot",
+    "third plantar interosseous of left foot",
+    "third plantar interosseous of right foot",
+    "transverse arytenoid",
+    "transverse head of left adductor hallucis",
+    "transverse head of left adductor pollicis",
+    "transverse head of right adductor hallucis",
+    "transverse head of right adductor pollicis",
+    "transverse part of left trapezius",
+    "transverse part of right trapezius",
+    "ulnar head of left flexor carpi ulnaris",
+    "ulnar head of left pronator teres",
+    "ulnar head of right flexor carpi ulnaris",
+    "ulnar head of right pronator teres",
+    "vertical intermediate part of left longus colli"
+  ],
+  "bones": [
+    {
+      "index": 0,
+      "name": "velora-humanoid-root",
+      "parent": -1,
+      "rest": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index": 1,
+      "name": "spine-pelvis",
+      "parent": 0,
+      "rest": [
+        0.00019618,
+        0.81078609,
+        0.07914801
+      ]
+    },
+    {
+      "index": 2,
+      "name": "spine-lumbar",
+      "parent": 1,
+      "rest": [
+        -0.00071355,
+        0.92971396,
+        0.05866075
+      ]
+    },
+    {
+      "index": 3,
+      "name": "spine-lumbarUpper",
+      "parent": 2,
+      "rest": [
+        -0.0006592,
+        1.04359007,
+        0.0693512
+      ]
+    },
+    {
+      "index": 4,
+      "name": "spine-thorax",
+      "parent": 3,
+      "rest": [
+        -0.0007058,
+        1.12845004,
+        0.04594015
+      ]
+    },
+    {
+      "index": 5,
+      "name": "spine-chest",
+      "parent": 4,
+      "rest": [
+        -0.0006944,
+        1.23922992,
+        0.03320666
+      ]
+    },
+    {
+      "index": 6,
+      "name": "spine-neck",
+      "parent": 5,
+      "rest": [
+        -0.00064885,
+        1.37827492,
+        0.05564915
+      ]
+    },
+    {
+      "index": 7,
+      "name": "spine-neckUpper",
+      "parent": 6,
+      "rest": [
+        -0.00065175,
+        1.43137002,
+        0.06297315
+      ]
+    },
+    {
+      "index": 8,
+      "name": "spine-head",
+      "parent": 7,
+      "rest": [
+        -0.00056695,
+        1.47182,
+        0.06412
+      ]
+    },
+    {
+      "index": 9,
+      "name": "left-clavicle",
+      "parent": 5,
+      "rest": [
+        0.0112386,
+        1.31821096,
+        0.13108562
+      ]
+    },
+    {
+      "index": 10,
+      "name": "left-scapulothoracic",
+      "parent": 9,
+      "rest": [
+        0.1647,
+        1.315,
+        0.0758
+      ]
+    },
+    {
+      "index": 11,
+      "name": "left-humerus",
+      "parent": 10,
+      "rest": [
+        0.1647,
+        1.315,
+        0.0758
+      ]
+    },
+    {
+      "index": 12,
+      "name": "left-upper-arm-twist",
+      "parent": 11,
+      "rest": [
+        0.1647,
+        1.315,
+        0.0758
+      ]
+    },
+    {
+      "index": 13,
+      "name": "left-ulna-proximal-forearm",
+      "parent": 12,
+      "rest": [
+        0.224,
+        1.039,
+        0.073
+      ]
+    },
+    {
+      "index": 14,
+      "name": "left-forearm-pronation-1",
+      "parent": 13,
+      "rest": [
+        0.224,
+        1.039,
+        0.073
+      ]
+    },
+    {
+      "index": 15,
+      "name": "left-forearm-pronation-2",
+      "parent": 14,
+      "rest": [
+        0.224,
+        1.039,
+        0.073
+      ]
+    },
+    {
+      "index": 16,
+      "name": "left-radius-distal-pronation",
+      "parent": 15,
+      "rest": [
+        0.224,
+        1.039,
+        0.073
+      ]
+    },
+    {
+      "index": 17,
+      "name": "left-carpus-palm",
+      "parent": 16,
+      "rest": [
+        0.258,
+        0.805,
+        0.112
+      ]
+    },
+    {
+      "index": 18,
+      "name": "left-thumb-metacarpal",
+      "parent": 17,
+      "rest": [
+        0.27782813,
+        0.79348397,
+        0.12688862
+      ]
+    },
+    {
+      "index": 19,
+      "name": "left-thumb-proximal",
+      "parent": 18,
+      "rest": [
+        0.30529088,
+        0.76538625,
+        0.13839033
+      ]
+    },
+    {
+      "index": 20,
+      "name": "left-thumb-distal",
+      "parent": 19,
+      "rest": [
+        0.31463049,
+        0.73956895,
+        0.13840604
+      ]
+    },
+    {
+      "index": 21,
+      "name": "left-index-metacarpal",
+      "parent": 17,
+      "rest": [
+        0.2672511,
+        0.78486788,
+        0.12005619
+      ]
+    },
+    {
+      "index": 22,
+      "name": "left-index-proximal",
+      "parent": 21,
+      "rest": [
+        0.28477098,
+        0.72064939,
+        0.10643432
+      ]
+    },
+    {
+      "index": 23,
+      "name": "left-index-middle",
+      "parent": 22,
+      "rest": [
+        0.29829712,
+        0.68714234,
+        0.10744802
+      ]
+    },
+    {
+      "index": 24,
+      "name": "left-index-distal",
+      "parent": 23,
+      "rest": [
+        0.30624096,
+        0.6734142,
+        0.11906217
+      ]
+    },
+    {
+      "index": 25,
+      "name": "left-middle-metacarpal",
+      "parent": 17,
+      "rest": [
+        0.26132205,
+        0.78354365,
+        0.1125693
+      ]
+    },
+    {
+      "index": 26,
+      "name": "left-middle-proximal",
+      "parent": 25,
+      "rest": [
+        0.26548259,
+        0.72199491,
+        0.10705196
+      ]
+    },
+    {
+      "index": 27,
+      "name": "left-middle-middle",
+      "parent": 26,
+      "rest": [
+        0.27250914,
+        0.68472564,
+        0.11309974
+      ]
+    },
+    {
+      "index": 28,
+      "name": "left-middle-distal",
+      "parent": 27,
+      "rest": [
+        0.27492537,
+        0.66348869,
+        0.12275073
+      ]
+    },
+    {
+      "index": 29,
+      "name": "left-ring-metacarpal",
+      "parent": 17,
+      "rest": [
+        0.25028262,
+        0.78372675,
+        0.11956309
+      ]
+    },
+    {
+      "index": 30,
+      "name": "left-ring-proximal",
+      "parent": 29,
+      "rest": [
+        0.24740784,
+        0.72695151,
+        0.10990856
+      ]
+    },
+    {
+      "index": 31,
+      "name": "left-ring-middle",
+      "parent": 30,
+      "rest": [
+        0.24917278,
+        0.69109213,
+        0.11503726
+      ]
+    },
+    {
+      "index": 32,
+      "name": "left-ring-distal",
+      "parent": 31,
+      "rest": [
+        0.24941446,
+        0.67046967,
+        0.12542424
+      ]
+    },
+    {
+      "index": 33,
+      "name": "left-little-metacarpal",
+      "parent": 17,
+      "rest": [
+        0.24198215,
+        0.78491801,
+        0.12385272
+      ]
+    },
+    {
+      "index": 34,
+      "name": "left-little-proximal",
+      "parent": 33,
+      "rest": [
+        0.22955822,
+        0.73402128,
+        0.11609148
+      ]
+    },
+    {
+      "index": 35,
+      "name": "left-little-middle",
+      "parent": 34,
+      "rest": [
+        0.22586631,
+        0.70473376,
+        0.11937914
+      ]
+    },
+    {
+      "index": 36,
+      "name": "left-little-distal",
+      "parent": 35,
+      "rest": [
+        0.22286442,
+        0.68763763,
+        0.12379815
+      ]
+    },
+    {
+      "index": 37,
+      "name": "left-femur",
+      "parent": 1,
+      "rest": [
+        0.08865097,
+        0.81071426,
+        0.0791243
+      ]
+    },
+    {
+      "index": 38,
+      "name": "left-thigh-twist",
+      "parent": 37,
+      "rest": [
+        0.08865097,
+        0.81071426,
+        0.0791243
+      ]
+    },
+    {
+      "index": 39,
+      "name": "left-tibia",
+      "parent": 38,
+      "rest": [
+        0.0728,
+        0.367,
+        0.0826
+      ]
+    },
+    {
+      "index": 40,
+      "name": "left-shin-twist",
+      "parent": 39,
+      "rest": [
+        0.0728,
+        0.367,
+        0.0826
+      ]
+    },
+    {
+      "index": 41,
+      "name": "left-tarsus",
+      "parent": 40,
+      "rest": [
+        0.0713,
+        0.0066,
+        0.0744
+      ]
+    },
+    {
+      "index": 42,
+      "name": "left-metatarsophalangeal",
+      "parent": 41,
+      "rest": [
+        0.105,
+        -0.056,
+        0.185
+      ]
+    },
+    {
+      "index": 43,
+      "name": "right-clavicle",
+      "parent": 5,
+      "rest": [
+        -0.01307868,
+        1.32054925,
+        0.13079722
+      ]
+    },
+    {
+      "index": 44,
+      "name": "right-scapulothoracic",
+      "parent": 43,
+      "rest": [
+        -0.1647,
+        1.315,
+        0.0758
+      ]
+    },
+    {
+      "index": 45,
+      "name": "right-humerus",
+      "parent": 44,
+      "rest": [
+        -0.1647,
+        1.315,
+        0.0758
+      ]
+    },
+    {
+      "index": 46,
+      "name": "right-upper-arm-twist",
+      "parent": 45,
+      "rest": [
+        -0.1647,
+        1.315,
+        0.0758
+      ]
+    },
+    {
+      "index": 47,
+      "name": "right-ulna-proximal-forearm",
+      "parent": 46,
+      "rest": [
+        -0.224,
+        1.039,
+        0.073
+      ]
+    },
+    {
+      "index": 48,
+      "name": "right-forearm-pronation-1",
+      "parent": 47,
+      "rest": [
+        -0.224,
+        1.039,
+        0.073
+      ]
+    },
+    {
+      "index": 49,
+      "name": "right-forearm-pronation-2",
+      "parent": 48,
+      "rest": [
+        -0.224,
+        1.039,
+        0.073
+      ]
+    },
+    {
+      "index": 50,
+      "name": "right-radius-distal-pronation",
+      "parent": 49,
+      "rest": [
+        -0.224,
+        1.039,
+        0.073
+      ]
+    },
+    {
+      "index": 51,
+      "name": "right-carpus-palm",
+      "parent": 50,
+      "rest": [
+        -0.258,
+        0.805,
+        0.112
+      ]
+    },
+    {
+      "index": 52,
+      "name": "right-thumb-metacarpal",
+      "parent": 51,
+      "rest": [
+        -0.27570736,
+        0.79225701,
+        0.12976636
+      ]
+    },
+    {
+      "index": 53,
+      "name": "right-thumb-proximal",
+      "parent": 52,
+      "rest": [
+        -0.30557306,
+        0.76543209,
+        0.13864925
+      ]
+    },
+    {
+      "index": 54,
+      "name": "right-thumb-distal",
+      "parent": 53,
+      "rest": [
+        -0.31354992,
+        0.73873305,
+        0.13736031
+      ]
+    },
+    {
+      "index": 55,
+      "name": "right-index-metacarpal",
+      "parent": 51,
+      "rest": [
+        -0.26738539,
+        0.78480273,
+        0.12027679
+      ]
+    },
+    {
+      "index": 56,
+      "name": "right-index-proximal",
+      "parent": 55,
+      "rest": [
+        -0.28662656,
+        0.72118422,
+        0.10683874
+      ]
+    },
+    {
+      "index": 57,
+      "name": "right-index-middle",
+      "parent": 56,
+      "rest": [
+        -0.29909593,
+        0.68752655,
+        0.10787781
+      ]
+    },
+    {
+      "index": 58,
+      "name": "right-index-distal",
+      "parent": 57,
+      "rest": [
+        -0.30548486,
+        0.67326105,
+        0.11896757
+      ]
+    },
+    {
+      "index": 59,
+      "name": "right-middle-metacarpal",
+      "parent": 51,
+      "rest": [
+        -0.2624194,
+        0.78387523,
+        0.11196011
+      ]
+    },
+    {
+      "index": 60,
+      "name": "right-middle-proximal",
+      "parent": 59,
+      "rest": [
+        -0.26617776,
+        0.72262353,
+        0.10773791
+      ]
+    },
+    {
+      "index": 61,
+      "name": "right-middle-middle",
+      "parent": 60,
+      "rest": [
+        -0.27230121,
+        0.6849966,
+        0.11316508
+      ]
+    },
+    {
+      "index": 62,
+      "name": "right-middle-distal",
+      "parent": 61,
+      "rest": [
+        -0.27569894,
+        0.66389245,
+        0.12310523
+      ]
+    },
+    {
+      "index": 63,
+      "name": "right-ring-metacarpal",
+      "parent": 51,
+      "rest": [
+        -0.25020662,
+        0.7835362,
+        0.11886148
+      ]
+    },
+    {
+      "index": 64,
+      "name": "right-ring-proximal",
+      "parent": 63,
+      "rest": [
+        -0.24723037,
+        0.72752935,
+        0.11055335
+      ]
+    },
+    {
+      "index": 65,
+      "name": "right-ring-middle",
+      "parent": 64,
+      "rest": [
+        -0.24878564,
+        0.69143918,
+        0.11564106
+      ]
+    },
+    {
+      "index": 66,
+      "name": "right-ring-distal",
+      "parent": 65,
+      "rest": [
+        -0.25019558,
+        0.67094368,
+        0.12580594
+      ]
+    },
+    {
+      "index": 67,
+      "name": "right-little-metacarpal",
+      "parent": 51,
+      "rest": [
+        -0.23913284,
+        0.78608716,
+        0.12416804
+      ]
+    },
+    {
+      "index": 68,
+      "name": "right-little-proximal",
+      "parent": 67,
+      "rest": [
+        -0.23041461,
+        0.73431343,
+        0.11690833
+      ]
+    },
+    {
+      "index": 69,
+      "name": "right-little-middle",
+      "parent": 68,
+      "rest": [
+        -0.22634739,
+        0.70436224,
+        0.11861048
+      ]
+    },
+    {
+      "index": 70,
+      "name": "right-little-distal",
+      "parent": 69,
+      "rest": [
+        -0.22286762,
+        0.68803546,
+        0.12427077
+      ]
+    },
+    {
+      "index": 71,
+      "name": "right-femur",
+      "parent": 1,
+      "rest": [
+        -0.08825862,
+        0.81085791,
+        0.07917172
+      ]
+    },
+    {
+      "index": 72,
+      "name": "right-thigh-twist",
+      "parent": 71,
+      "rest": [
+        -0.08825862,
+        0.81085791,
+        0.07917172
+      ]
+    },
+    {
+      "index": 73,
+      "name": "right-tibia",
+      "parent": 72,
+      "rest": [
+        -0.0728,
+        0.367,
+        0.0826
+      ]
+    },
+    {
+      "index": 74,
+      "name": "right-shin-twist",
+      "parent": 73,
+      "rest": [
+        -0.0728,
+        0.367,
+        0.0826
+      ]
+    },
+    {
+      "index": 75,
+      "name": "right-tarsus",
+      "parent": 74,
+      "rest": [
+        -0.0713,
+        0.0066,
+        0.0744
+      ]
+    },
+    {
+      "index": 76,
+      "name": "right-metatarsophalangeal",
+      "parent": 75,
+      "rest": [
+        -0.105,
+        -0.056,
+        0.185
+      ]
+    },
+    {
+      "index": 77,
+      "name": "left-patella",
+      "parent": 39,
+      "rest": [
+        0.08142,
+        0.38113,
+        0.11183
+      ]
+    },
+    {
+      "index": 78,
+      "name": "right-patella",
+      "parent": 73,
+      "rest": [
+        -0.08142,
+        0.38113,
+        0.11183
+      ]
+    }
+  ],
+  "meta": {
+    "version": 1,
+    "vertices": 83308,
+    "triangles": 166620,
+    "surfaceSHA256": "dbfd4d95c79d662715460c8d384b3c9e113a3649c2af012c8936bf5d49b2c5e5",
+    "sourceRegistryCount": 467,
+    "mappedMuscleIds": 106,
+    "sourceDistanceMetres": {
+      "mean": 0.0028711974155157804,
+      "p50": 0.0013366995844990015,
+      "p95": 0.010046740993857384,
+      "max": 0.03952094539999962
+    },
+    "sourceDistanceByRegion": {
+      "head": {
+        "mean": 0.005367693025618792,
+        "p95": 0.018739750608801842,
+        "max": 0.03059503436088562
+      },
+      "left-arm": {
+        "mean": 0.0025290818884968758,
+        "p95": 0.012045600451529026,
+        "max": 0.031083913519978523
+      },
+      "left-hand": {
+        "mean": 0.004775825887918472,
+        "p95": 0.009463735856115818,
+        "max": 0.017724020406603813
+      },
+      "left-leg": {
+        "mean": 0.0022568805143237114,
+        "p95": 0.0075804851949214935,
+        "max": 0.024005863815546036
+      },
+      "pelvis": {
+        "mean": 0.0068910694681108,
+        "p95": 0.02737104520201683,
+        "max": 0.03952094539999962
+      },
+      "right-arm": {
+        "mean": 0.002506552031263709,
+        "p95": 0.012006011791527271,
+        "max": 0.030792487785220146
+      },
+      "right-hand": {
+        "mean": 0.004805005621165037,
+        "p95": 0.00971409771591425,
+        "max": 0.017826559022068977
+      },
+      "right-leg": {
+        "mean": 0.002261174377053976,
+        "p95": 0.007688938640058041,
+        "max": 0.024352751672267914
+      },
+      "torso": {
+        "mean": 0.002595628844574094,
+        "p95": 0.009194547310471535,
+        "max": 0.038063567131757736
+      }
+    },
+    "weightSumMaxError": 1.7881393432617188e-07,
+    "binaryBytes": 14662256,
+    "top4DiscardedWeight": {
+      "mean": 4.574953436531359e-06,
+      "max": 0.021309614181518555
+    },
+    "binding": "Unchanged 79-bone Velora hierarchy; regional barycentric source transfer, surface smoothing, explicit complete hand/phalange weights",
+    "handVertexCounts": {
+      "right-thumb": 606,
+      "right-index": 588,
+      "right-palm": 851,
+      "right-middle": 527,
+      "right-ring": 502,
+      "right-little": 436,
+      "left-little": 433,
+      "left-palm": 856,
+      "left-ring": 514,
+      "left-middle": 518,
+      "left-index": 606,
+      "left-thumb": 607
+    },
+    "muscleVertices": {
+      "right gluteus maximus": 1388,
+      "right iliocostalis lumborum": 371,
+      "left gluteus maximus": 1353,
+      "left iliocostalis lumborum": 414,
+      "right latissimus dorsi": 2820,
+      "ascending part of right trapezius": 916,
+      "left latissimus dorsi": 2679,
+      "ascending part of left trapezius": 910,
+      "spinal part of right deltoid": 1248,
+      "long head of right triceps brachii": 1191,
+      "transverse part of right trapezius": 532,
+      "transverse part of left trapezius": 527,
+      "right fibularis longus": 804,
+      "right fibularis brevis": 307,
+      "right soleus": 1074,
+      "right tibialis anterior": 1185,
+      "lateral head of right gastrocnemius": 880,
+      "right sartorius": 1771,
+      "right gracilis": 1016,
+      "right rectus femoris": 1776,
+      "medial head of right gastrocnemius": 1359,
+      "right semitendinosus": 1110,
+      "right vastus lateralis": 1644,
+      "long head of right biceps femoris": 1557,
+      "short head of right biceps femoris": 278,
+      "right vastus medialis": 670,
+      "right semimembranosus": 946,
+      "right adductor magnus": 407,
+      "right adductor longus": 495,
+      "right extensor carpi radialis longus": 465,
+      "right extensor carpi radialis brevis": 249,
+      "right brachioradialis": 969,
+      "right flexor carpi radialis": 731,
+      "right extensor digitorum": 422,
+      "right flexor digitorum superficialis (2)": 233,
+      "right extensor carpi ulnaris": 387,
+      "right flexor digitorum superficialis": 469,
+      "ulnar head of right flexor carpi ulnaris": 464,
+      "humeral head of right flexor carpi ulnaris": 579,
+      "right gluteus medius": 975,
+      "right tensor fasciae latae": 1267,
+      "right external oblique": 3470,
+      "right rectus abdominis": 901,
+      "left rectus abdominis": 961,
+      "left adductor magnus": 452,
+      "left gracilis": 1004,
+      "left external oblique": 3560,
+      "right longissimus thoracis": 41,
+      "left longissimus thoracis": 44,
+      "humeral head of right pronator teres": 290,
+      "right brachialis": 622,
+      "long head of right biceps brachii": 925,
+      "lateral head of right triceps brachii": 1080,
+      "medial head of right triceps brachii": 457,
+      "short head of right biceps brachii": 1248,
+      "right serratus anterior": 1604,
+      "abdominal part of right pectoralis major": 661,
+      "sternocostal part of right pectoralis major": 1767,
+      "acromial part of right deltoid": 1129,
+      "clavicular part of right deltoid": 845,
+      "clavicular part of right pectoralis major": 1113,
+      "descending part of right trapezius": 724,
+      "sternocostal part of left pectoralis major": 1740,
+      "clavicular part of left pectoralis major": 1081,
+      "descending part of left trapezius": 727,
+      "left soleus": 1082,
+      "left iliocostalis thoracis": 30,
+      "left serratus anterior": 1787,
+      "spinal part of left deltoid": 1241,
+      "long head of left triceps brachii": 1229,
+      "medial head of left gastrocnemius": 1345,
+      "left tibialis anterior": 1205,
+      "lateral head of left gastrocnemius": 897,
+      "left semitendinosus": 1137,
+      "left sartorius": 1769,
+      "left fibularis brevis": 288,
+      "left fibularis longus": 812,
+      "left rectus femoris": 1731,
+      "left semimembranosus": 940,
+      "left vastus medialis": 639,
+      "long head of left biceps femoris": 1580,
+      "left adductor longus": 476,
+      "left vastus lateralis": 1647,
+      "short head of left biceps femoris": 285,
+      "left tensor fasciae latae": 1214,
+      "left gluteus medius": 970,
+      "ulnar head of left flexor carpi ulnaris": 451,
+      "left extensor carpi ulnaris (2)": 12,
+      "humeral head of left flexor carpi ulnaris": 589,
+      "left extensor carpi ulnaris": 373,
+      "left flexor digitorum superficialis": 481,
+      "left flexor carpi radialis": 739,
+      "left extensor digitorum": 432,
+      "left flexor digitorum superficialis (2)": 228,
+      "left extensor carpi radialis brevis": 264,
+      "left brachioradialis": 977,
+      "left extensor carpi radialis longus": 460,
+      "abdominal part of left pectoralis major": 749,
+      "medial head of left triceps brachii": 447,
+      "short head of left biceps brachii": 1206,
+      "humeral head of left pronator teres": 286,
+      "left brachialis": 600,
+      "lateral head of left triceps brachii": 1076,
+      "long head of left biceps brachii": 905,
+      "clavicular part of left deltoid": 817,
+      "acromial part of left deltoid": 1131
+    },
+    "jointBindingRevision": 4,
+    "colorProjection": {
+      "method": "Separate regional closest-triangle BVH over configurable original superficial major muscles; true joint/tendon endpoints remain neutral; two edge-ring blending",
+      "eligibleSourceMuscleIds": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        34,
+        35,
+        36,
+        37,
+        46,
+        47,
+        49,
+        50,
+        56,
+        57,
+        62,
+        63,
+        75,
+        76,
+        77,
+        78,
+        80,
+        87,
+        88,
+        89,
+        92,
+        96,
+        97,
+        105,
+        106,
+        108,
+        113,
+        114,
+        121,
+        124,
+        132,
+        139,
+        140,
+        169,
+        174,
+        179,
+        183,
+        186,
+        187,
+        188,
+        191,
+        192,
+        208,
+        215,
+        220,
+        221,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        231,
+        232,
+        234,
+        235,
+        252,
+        253,
+        258,
+        259,
+        269,
+        270,
+        271,
+        272,
+        274,
+        281,
+        282,
+        283,
+        286,
+        290,
+        291,
+        299,
+        300,
+        302,
+        306,
+        307,
+        315,
+        318,
+        326,
+        333,
+        334,
+        361,
+        366,
+        371,
+        375,
+        378,
+        379,
+        380,
+        383,
+        384,
+        400,
+        407,
+        412,
+        413,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        441,
+        442,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466
+      ],
+      "rules": "tools/appearance/transfer-muscle-regions.json",
+      "projectedVertices": 61564,
+      "neutralVertices": 21744,
+      "distanceMeanMetres": 0.0033887773752212524,
+      "distanceP95Metres": 0.014863824471831322
+    },
+    "jointBinding": "Connected harmonic shoulder field (chest/humerus), unified pelvis/femur/tibia skin fields with consistent hip/knee DQ-LBS bands, complete hand web fairing; original muscle IDs independent; source shoulder/hip strip morphs disabled",
+    "elapsedSeconds": 20.66
+  }
+}

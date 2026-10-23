@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f5f2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23234a3a'/%3E%3Ctext x='9' y='30' fill='white' font-size='29' font-family='Georgia'%3EB%3C/text%3E%3C/svg%3E" />
+  <title>Body Motion Lab · 肌肉与关节验证</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Body Motion Lab 首页"><span class="brand-mark">B.</span><span>BODY <b>MOTION LAB</b></span></a>
+    <span class="top-caption">BODYEXPLORER / 本地形变实验</span>
+    <span class="local-tag"><i></i>本地运行 · 无生成 API</span>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="eyebrow">PROOF OF CONCEPT / 01</div>
+      <h1>让肌肉，<br>跟着关节动。</h1>
+      <p class="intro">验证独立肌肉高亮，以及静态解剖模型在弯肘时的连接与形变。</p>
+      <section>
+        <h2><span>01</span> 肌肉高亮</h2>
+        <div class="presets" role="group" aria-label="肌肉高亮部位">
+          <button data-highlight="biceps" class="active" aria-pressed="true">右肱二头肌<span>屈肘示意</span></button>
+          <button data-highlight="triceps" aria-pressed="false">右肱三头肌<span>对照查看</span></button>
+          <button data-highlight="chest" aria-pressed="false">双侧胸大肌<span>分块验证</span></button>
+          <button data-highlight="quads" aria-pressed="false">双侧股四头肌<span>分块验证</span></button>
+        </div>
+        <label class="toggle-row"><span>显示红色高亮</span><input id="highlight-enabled" type="checkbox" checked /></label>
+      </section>
+      <section>
+        <h2><span>02</span> 肘关节形变</h2>
+        <label class="field-label" for="deform-mode">变形方式</label>
+        <select id="deform-mode"><option value="skin">自动权重蒙皮 · 实验</option><option value="rigid">刚性分段 · 对照</option><option value="rest">原始静态模型</option></select>
+        <div class="angle-label"><label for="angle">右肘屈曲角度</label><output id="angle-value">0°</output></div>
+        <input id="angle" type="range" min="0" max="120" value="0" step="1" />
+        <div class="range-ticks"><span>伸直 0°</span><span>90°</span><span>120°</span></div>
+        <div class="angle-stops"><button data-angle="0">0°</button><button data-angle="60">60°</button><button data-angle="90">90°</button><button data-angle="120">120°</button></div>
+        <button id="play" class="primary">播放弯肘循环 <span>4 s</span></button>
+      </section>
+      <section class="display-options">
+        <h2><span>03</span> 检查视图</h2>
+        <label class="toggle-row"><span>显示解剖骨骼</span><input id="bones" type="checkbox" /></label>
+        <label class="toggle-row"><span>线框检查</span><input id="wireframe" type="checkbox" /></label>
+        <label class="toggle-row"><span>只看右臂</span><input id="isolate" type="checkbox" /></label>
+      </section>
+      <div class="scope-note"><strong>实验边界</strong><p>使用原始解剖网格和自动生成的肘部权重。高亮是人工指定的教学示意，非肌肉激活测量；当前未加入专业权重修形。</p></div>
+      <details class="credits"><summary>模型来源与许可</summary><p>基于 <a href="https://github.com/JohanBellander/BodyExplorer" target="_blank" rel="noreferrer">BodyExplorer</a>。代码许可按作者声明为 MIT。BodyParts3D © DBCLS：<a href="https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en" target="_blank" rel="noreferrer">CC BY-SA 2.1 Japan</a>；Z-Anatomy / Gauthier Kervyn：<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>。本实验添加坐标变换、配色、骨骼及自动蒙皮，保留模型来源许可。</p></details>
+    </aside>
+    <main class="stage">
+      <div class="stage-header"><div><span class="eyebrow">ANATOMY / MOTION</span><h2>右肘屈曲测试</h2></div><span id="status" role="status">正在载入模型…</span></div>
+      <div class="view-grid">
+        <div class="view body-view"><canvas id="body-canvas" aria-label="全身解剖模型，可以拖动旋转及滚轮缩放"></canvas><div class="view-label">01 / 全身视图</div><div class="view-toolbar"><button id="front-view">正面</button><button id="threequarter-view" class="active">三分之四</button><button id="reset-view">重置视角</button></div></div>
+        <div class="view detail-view"><canvas id="detail-canvas" aria-label="右臂及肘关节近景，可以拖动旋转及滚轮缩放"></canvas><div class="view-label">02 / 肘部近景</div><div class="detail-angle"><output id="detail-angle">0</output><span>DEGREES</span></div><div class="joint-label"><span></span>肘部旋转中心</div></div>
+      </div>
+      <footer class="stage-footer"><div><i class="legend-dot"></i><span id="selected-label">右肱二头肌</span><span class="legend-neutral">其余肌肉 / 灰色</span></div><span>拖动旋转 · 滚轮缩放</span></footer>
+      <div class="checks"><div><span>结构</span><strong id="mesh-count">—</strong><small>独立解剖网格</small></div><div><span>绑定</span><strong id="rig-count">—</strong><small>参与肘部蒙皮</small></div><div><span>高亮</span><strong id="selected-count">—</strong><small>指定肌肉分块</small></div><div><span>状态</span><strong id="state-label">载入中</strong><small>拖动角度可逐帧检查</small></div></div>
+      <div id="error" role="alert" hidden></div>
+      <div id="loading"><div class="loading-line"></div><p id="loading-text">正在载入原始解剖网格…</p></div>
+    </main>
+  </div>
+  <script type="module" src="/src/elbow-demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f5f2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23234a3a'/%3E%3Ctext x='10' y='30' fill='white' font-size='29' font-family='Georgia'%3EV%3C/text%3E%3C/svg%3E" />
+  <title>Velora Motion Lab · 通用人体骨架</title>
+</head>
+<body class="universal-lab">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">V.</span><span>VELORA <b>MOTION LAB</b></span></a>
+    <span class="top-caption">ONE BODY / REUSABLE MOTION</span>
+    <span class="local-tag"><i></i>本地渲染 · 无生成 API</span>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="eyebrow">UNIVERSAL HUMAN RIG / 01</div>
+      <h1>同一个身体，<br>不同的动作。</h1>
+      <p class="intro">统一人体骨架、肌肉绑定与接触约束。切换动作，沿用同一套人体绑定。</p>
+      <section class="exercise-section"><h2><span>01</span> 选择动作</h2>
+        <div class="exercise-presets" role="group" aria-label="健身动作">
+          <button type="button" data-exercise="pushup" class="active" aria-pressed="true" disabled><span>01</span><strong>俯卧撑</strong><small>手足支撑</small></button>
+          <button type="button" data-exercise="squat" aria-pressed="false" disabled><span>02</span><strong>深蹲</strong><small>下肢屈伸</small></button>
+          <button type="button" data-exercise="curl" aria-pressed="false" disabled><span>03</span><strong>哑铃弯举</strong><small>抓握器械</small></button>
+        </div>
+      </section>
+      <section class="motion-section"><h2><span>02</span> 动作控制</h2>
+        <button id="play" class="primary" disabled>播放完整动作 <span>3 s</span></button>
+        <div class="phase-head"><label for="phase">本次动作进度</label><output id="phase-value">0%</output></div>
+        <input id="phase" type="range" min="0" max="1000" step="1" value="0" disabled />
+        <div class="range-ticks"><span>起始</span><span>终点</span><span>返回起始</span></div>
+        <div class="pose-stops"><button type="button" data-phase="0" disabled>起始</button><button type="button" data-phase="0.25" disabled>去程</button><button type="button" data-phase="0.5" disabled>终点</button><button type="button" data-phase="0.75" disabled>返回</button></div>
+        <label class="field-label" for="repetitions">连续次数</label><select id="repetitions"><option value="1">1 次</option><option value="3">3 次</option><option value="5">5 次</option></select>
+        <p id="repetition-note" class="duration-note">每次 3 秒</p>
+      </section>
+      <section class="muscles-section"><h2><span>03</span> 肌群参与示意</h2>
+        <div class="role-legend"><span><i class="primary-dot"></i>深红 · 主要发力</span><span><i class="support-dot"></i>浅红 · 辅助／稳定</span></div>
+        <div id="muscle-list" class="muscle-list"><div><i></i><span>胸大肌</span><small>Pectoralis major</small></div><div><i></i><span>三角肌前束</span><small>Anterior deltoid</small></div><div><i></i><span>肱三头肌</span><small>Triceps brachii</small></div></div>
+        <details class="support-muscles"><summary>辅助与稳定肌群</summary><p id="support-description">前锯肌、背部稳定肌群与腹壁肌群。</p></details>
+        <label class="toggle-row"><span>显示肌肉高亮</span><input id="highlight-enabled" type="checkbox" checked disabled /></label>
+        <label class="toggle-row"><span>显示辅助／稳定参与</span><input id="support-enabled" type="checkbox" checked disabled /></label>
+      </section>
+      <section class="inspection-section"><h2><span>04</span> 检查视图</h2>
+        <label class="field-label" for="appearance">人体外观</label><select id="appearance"><option value="athlete">精瘦运动员</option><option value="anatomy">原始解剖模型</option></select>
+        <label class="toggle-row"><span>原版解剖骨骼</span><input id="bones" type="checkbox" disabled /></label>
+        <label class="toggle-row"><span>显示动作骨架</span><input id="joints" type="checkbox" disabled /></label>
+        <label class="toggle-row"><span>网格线框</span><input id="wireframe" type="checkbox" disabled /></label>
+        <details class="rig-inspection"><summary>骨架检查</summary><dl><div><dt>变形骨骼</dt><dd id="joint-count">—</dd></div><div><dt>原始肌肉标识</dt><dd id="muscle-count">—</dd></div><div><dt>解剖骨骼网格</dt><dd id="bone-count">—</dd></div><div><dt>可见外观</dt><dd id="appearance-stats">—</dd></div><div><dt>当前绑定</dt><dd id="binding-state">载入中</dd></div></dl><p>三个动作共用一套骨架；完整外观和原始解剖层分别绑定在同一骨架上。切换动作保留绑定，肌群标识映射到可见表面。</p></details>
+      </section>
+      <p class="scope-note">颜色用于肌群作用分类，不代表实测激活强度。仅展示部分参与肌群；灰色不代表完全没有参与。肌群颜色映射在完整人体外观表面。</p>
+      <details class="credits"><summary>模型来源与版本</summary><p>基于 <a href="https://github.com/JohanBellander/BodyExplorer" target="_blank" rel="noreferrer">BodyExplorer</a>。BodyParts3D © DBCLS，CC BY-SA 2.1 Japan；Z-Anatomy / Gauthier Kervyn，CC BY-SA 4.0。<a href="/pushup.html">查看原俯卧撑版本</a> · <a href="/elbow.html">早期肘部实验</a></p></details>
+    </aside>
+    <main class="stage">
+      <div class="stage-header"><div><span id="exercise-eyebrow" class="eyebrow">PUSH-UP / ONE COMPLETE REPETITION</span><h2 id="exercise-title">俯卧撑 · 全程演示</h2></div><span id="status" role="status">正在载入模型…</span></div>
+      <div class="main-view"><canvas id="body-canvas" aria-label="人体动作全身演示，可以旋转和缩放"></canvas><div class="view-label">01 / 全身视图</div><div id="phase-name" class="phase-tag">起始</div><div class="view-toolbar" role="group" aria-label="观察视角"><button type="button" data-view="oblique" class="active" aria-pressed="true">侧前方</button><button type="button" data-view="side" aria-pressed="false">正侧面</button><button type="button" data-view="front" aria-pressed="false">正前方</button><button type="button" data-view="back" aria-pressed="false">背部</button><button type="button" data-view="upper" aria-pressed="false">关节近景</button></div></div>
+      <div class="stage-footer"><span><i class="legend-dot"></i>深红 / 主要发力 <i class="legend-dot support-dot"></i>浅红 / 辅助或稳定 <span class="legend-neutral">灰色 / 其余结构</span></span><span>拖动旋转 · 滚轮缩放</span></div>
+      <div class="inspection-row"><div class="detail-view"><canvas id="detail-canvas" aria-label="动作关节局部检查"></canvas><div id="detail-label" class="view-label">02 / 肩臂与手掌</div></div><div class="metrics"><div class="metric"><span id="joint-metric-label">肘关节屈曲</span><strong id="joint-value">—</strong><small id="joint-metric-note">左右关节角度</small></div><div class="metric"><span id="contact-metric-label">接触约束</span><strong id="contact-value">手掌 / 脚趾</strong><small id="contact-metric-note">固定支撑</small></div><div class="metric"><span>动作进度</span><strong id="cycle-value">0.00 / 3.00 s</strong><small id="state-label">准备就绪</small></div></div></div>
+      <p id="exercise-description" class="exercise-description">双手与脚趾支撑，以肩肘协调运动完成下降和推起。</p>
+      <div id="error" role="alert" hidden></div><div id="loading"><div class="loading-line"></div><p id="loading-text">正在载入人体与外观…</p></div>
+    </main>
+  </div>
+  <script type="module" src="/src/universalMain.js"></script>
+</body>
+</html>

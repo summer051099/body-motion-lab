@@ -1,0 +1,65 @@
+@import './pushup.css';
+
+.universal-lab .brand-mark{letter-spacing:-1px;padding-right:2px}
+.universal-lab .sidebar{padding-top:28px}
+.universal-lab .sidebar h1{font-size:27px}
+.universal-lab .intro{margin-bottom:21px}
+.universal-lab .sidebar section{padding:18px 0 15px}
+.exercise-presets{display:grid;grid-template-columns:1fr;gap:7px}
+.exercise-presets button{display:grid;grid-template-columns:23px 1fr auto;align-items:center;gap:7px;min-height:46px;padding:10px 11px;text-align:left}
+.exercise-presets button>span{font-size:10px;color:#87968a;font-family:monospace}
+.exercise-presets strong{font-size:12px;font-weight:550}
+.exercise-presets small{font-size:9px;color:var(--muted)}
+.exercise-presets button.active{border-color:#55755e;background:#eaf0e8;box-shadow:inset 3px 0 #55755e}
+.duration-note{font-size:10px;color:var(--muted);margin:0;line-height:1.7}
+.rig-inspection{margin-top:10px;border-top:1px dashed var(--line);padding-top:11px;font-size:10px;color:var(--muted)}
+.rig-inspection summary{line-height:26px;min-height:32px;color:#42594a}
+.rig-inspection dl{margin:6px 0 10px}
+.rig-inspection dl>div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid #e7ebe3}
+.rig-inspection dt{font-weight:400}
+.rig-inspection dd{margin:0;color:var(--green);font-variant-numeric:tabular-nums}
+.rig-inspection p{line-height:1.9;margin:8px 0 3px}
+.exercise-description{font-size:11px;line-height:1.8;color:var(--muted);margin:14px 2px 0}
+.universal-lab .main-view{height:clamp(420px,calc(100vh - 440px),680px);background:#fff}
+.universal-lab .detail-view{background:#fff}
+.universal-lab .view-toolbar button{min-height:38px}
+.universal-lab .metric strong{font-size:20px}
+.universal-lab .metric:nth-child(2) strong{font-family:inherit;font-size:13px;font-weight:500;line-height:25px}
+.universal-lab .metric small{line-height:1.6;max-width:140px}
+.universal-lab .sidebar input:disabled{cursor:wait}
+.universal-lab #loading{background:#f6f8f2ed}
+.universal-lab .muscle-list>div{padding:6px 0}
+@media(min-width:1600px){.universal-lab .main-view{height:calc(100vh - 450px)}.universal-lab .sidebar h1{font-size:31px}}
+@media(max-width:1100px){.universal-lab .main-view{height:460px}.universal-lab .metrics{min-height:120px}}
+@media(max-width:650px){
+ .universal-lab .sidebar{padding:24px 20px 12px}
+ .universal-lab .sidebar h1{font-size:25px;display:block}
+ .universal-lab .sidebar h1 br{display:none}
+ .universal-lab .intro{margin:5px 0 17px}
+ .universal-lab .sidebar section{display:block!important;padding:15px 0}
+ .universal-lab .sidebar section h2{width:auto;margin-bottom:12px}
+ .exercise-presets{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .exercise-presets button{grid-template-columns:1fr;gap:5px;min-height:81px;padding:10px}
+ .exercise-presets button>span{font-size:9px}
+ .exercise-presets strong{font-size:12px;white-space:nowrap}
+ .exercise-presets small{font-size:9px}
+ .universal-lab .muscles-section .muscle-list,.universal-lab .support-muscles{display:none}
+ .universal-lab .inspection-section>.toggle-row{display:inline-flex;width:calc(50% - 5px);min-height:43px;padding-right:9px;font-size:11px;white-space:normal}
+ .universal-lab .scope-note{display:block;font-size:10px}
+ .universal-lab .credits{display:block}
+ .universal-lab .main-view{height:420px}
+ .universal-lab .stage-header{align-items:flex-start;gap:10px}
+ .universal-lab .stage-header h2{font-size:18px;line-height:1.6}
+ .universal-lab .stage-header #status{max-width:130px;font-size:9px;padding:6px 9px;flex-shrink:0}
+ .universal-lab .view-toolbar{gap:4px;padding:0 8px;bottom:13px}
+ .universal-lab .view-toolbar button{min-height:44px;min-width:44px;padding:7px 9px;font-size:9px}
+ .universal-lab .pose-stops button{min-height:44px}
+ .universal-lab .phase-tag{right:12px;top:13px;padding:6px 10px}
+ .universal-lab .view-label{left:13px;top:17px;font-size:9px}
+ .universal-lab .metric strong{font-size:18px}
+ .universal-lab .metric:nth-child(2) strong{font-size:11px}
+ .universal-lab .metrics{gap:10px;padding:18px 12px}
+ .universal-lab .metric small{font-size:8px;max-width:105px}
+ .universal-lab .exercise-description{font-size:10px}
+}
+@media(max-width:360px){.universal-lab .view-toolbar button{padding:7px 7px}.universal-lab .metric strong{font-size:16px}.universal-lab .stage-header #status{max-width:108px}.universal-lab .stage{padding:18px 15px}}
