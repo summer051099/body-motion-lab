@@ -6,10 +6,10 @@ scene.add(new THREE.HemisphereLight(0xffffff, 0xb7afa6, 2));
 const key = new THREE.DirectionalLight(0xfffcf8, 3); key.position.set(-2,4,3); scene.add(key);
 const fill = new THREE.DirectionalLight(0xf4f5fa, 1); fill.position.set(3,2,-2); scene.add(fill);
 const model = new THREE.Group(); scene.add(model);
-const views = []; const target = new THREE.Vector3(0,.85,.075);
+const views = []; const target = new THREE.Vector3(0,.855,.075);
 const positions = { front: [0,.85,4], side:[4,.85,.075], back:[0,.85,-4], oblique:[3,.85,3.075] };
 function reset(view) {
- const height = 1.83, aspect = view.canvas.clientWidth / view.canvas.clientHeight;
+ const height = 1.77, aspect = view.canvas.clientWidth / view.canvas.clientHeight;
  view.camera.left=-height*aspect/2;view.camera.right=height*aspect/2;view.camera.top=height/2;view.camera.bottom=-height/2;
  view.camera.zoom=1;view.camera.position.fromArray(positions[view.id]);view.camera.lookAt(target);view.camera.updateProjectionMatrix();view.controls.target.copy(target);view.controls.update();view.render();
 }

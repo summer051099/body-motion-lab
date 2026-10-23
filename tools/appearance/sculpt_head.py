@@ -15,8 +15,8 @@ OUT=ROOT/'output/appearance/art-head'
 # cheek/jaw angle, temporal width, occipital bulge and crown are independently
 # shaped; this is not an ellipsoid with attached ears.
 HEAD_PROFILE=np.array([
- [1.433,.003,.145,.133], [1.439,.020,.158,.115],
- [1.449,.035,.168,.088], [1.462,.049,.175,.056],
+ [1.433,.006,.160,.141], [1.439,.022,.169,.116],
+ [1.449,.037,.175,.087], [1.462,.050,.179,.056],
  [1.478,.059,.181,.030], [1.500,.066,.184,.009],
  [1.525,.071,.186,-.002], [1.550,.0735,.184,-.008],
  [1.575,.072,.176,-.006], [1.598,.064,.161,.008],
@@ -26,9 +26,10 @@ HEAD_PROFILE=np.array([
 NECK_PROFILE=np.array([
  [1.298,.118,.151,-.009], [1.310,.095,.144,-.003],
  [1.325,.074,.136,.005], [1.345,.056,.125,.014],
- [1.370,.043,.114,.023], [1.397,.036,.104,.029],
- [1.425,.034,.095,.032], [1.455,.035,.088,.033],
- [1.487,.036,.087,.029]
+ [1.370,.043,.114,.021], [1.397,.036,.104,.025],
+ [1.425,.034,.095,.025], [1.455,.035,.088,.025],
+ [1.487,.036,.087,.020], [1.505,.040,.096,.015],
+ [1.525,.044,.108,.020]
 ],dtype=float)
 
 def sm(t):
@@ -51,6 +52,14 @@ def sample(profile,m,y):
  h=profile[k+1,0]-profile[k,0];t=np.clip((y-profile[k,0])/h,0,1)
  return (2*t**3-3*t*t+1)*profile[k,1:]+(t**3-2*t*t+t)*h*m[k]+(-2*t**3+3*t*t)*profile[k+1,1:]+(t**3-t*t)*h*m[k+1]
 
+def head_section(y):
+ values=sample(HEAD_PROFILE,HM,y)
+ if y>1.565:
+  q=math.sqrt(max(0,1-((y-1.546)/.096)**2))
+  crown=np.array([.074*q,.087+.096*q,.087-.096*q])
+  t=sm((y-1.565)/.015);values=values*(1-t)+crown*t
+ return values
+
 def object_mesh(name,vertices,faces):
  mesh=bpy.data.meshes.new(name);mesh.from_pydata(vertices,[],faces);mesh.update()
  bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
@@ -60,8 +69,8 @@ def object_mesh(name,vertices,faces):
 
 def loft(name,profile,m,rows=128,n=128,neck=False):
  vertices=[];faces=[]
- for y in np.linspace(profile[0,0],profile[-1,0],rows):
-  rx,front,back=sample(profile,m,y);center=(front+back)*.5;rf=front-center;rb=center-back
+ for y in np.linspace(profile[0,0],profile[-1,0] if neck else profile[-1,0]-.0004,rows):
+  rx,front,back=sample(profile,m,y) if neck else head_section(y);center=(front+back)*.5;rf=front-center;rb=center-back
   for i in range(n):
    a=2*math.pi*i/n;c=math.cos(a);s=math.sin(a)
    x=rx*c;z=center+(rf if s>=0 else rb)*s
@@ -73,46 +82,70 @@ def loft(name,profile,m,rows=128,n=128,neck=False):
     for sign in [-1,1]:
      theta=1.32-1.64*u
      if sign<0:theta=math.pi-theta
-     width=.18+.06*math.sin(math.pi*u)
-     ridge+=.0062*(math.sin(math.pi*u)**.65)*math.exp(-(angle_delta(a,theta)/width)**2)
+     width=.23+.06*math.sin(math.pi*u)
+     ridge+=.0053*(math.sin(math.pi*u)**.65)*math.exp(-(angle_delta(a,theta)/width)**2)
      # Soft clavicular head branching from the same SCM belly.
      theta2=1.05-1.37*u
      if sign<0:theta2=math.pi-theta2
-     ridge+=.0035*(math.sin(math.pi*u)**.9)*math.exp(-(angle_delta(a,theta2)/.21)**2)
+     ridge+=.0030*(math.sin(math.pi*u)**.9)*math.exp(-(angle_delta(a,theta2)/.21)**2)
     # Upper trapezius / nape flow, with a shallow central nuchal furrow.
     for theta in [-.83,math.pi+.83]:ridge+=.0045*window(y,1.305,1.335,1.432,1.475)*math.exp(-(angle_delta(a,theta)/.42)**2)
+    ridge-=.0018*math.exp(-((y-1.326)/.014)**2)*math.exp(-(angle_delta(a,math.pi/2)/.15)**2)
     ridge-=.0011*window(y,1.335,1.370,1.432,1.470)*math.exp(-(angle_delta(a,-math.pi/2)/.20)**2)
     x+=ridge*c;z+=ridge*s
    vertices.append((x,float(y),z))
  for j in range(rows-1):
   for i in range(n):
    a=j*n+i;b=j*n+(i+1)%n;faces.append((a,b,b+n,a+n))
- faces.append(tuple(range(n-1,-1,-1)));faces.append(tuple((rows-1)*n+i for i in range(n)))
+ faces.append(tuple(range(n-1,-1,-1)))
+ if neck:faces.append(tuple((rows-1)*n+i for i in range(n)))
+ else:
+  pole=len(vertices);vertices.append((0,float(profile[-1,0]),.087))
+  for i in range(n):faces.append(((rows-1)*n+i,(rows-1)*n+(i+1)%n,pole))
  return object_mesh(name,vertices,faces)
 
 def skull_x(y,z):
- rx,front,back=sample(HEAD_PROFILE,HM,y);center=(front+back)*.5;r=(front-center) if z>=center else (center-back)
+ rx,front,back=head_section(y);center=(front+back)*.5;r=(front-center) if z>=center else (center-back)
  return float(rx*math.sqrt(max(.01,1-((z-center)/r)**2)))
 
 def ear(sign):
  # Closed auricle surfaces. The root conforms to the actual skull; a raised
  # helix, conchal bowl, interrupted antihelix and tragal lip are sculpted into
  # one disk and joined volumetrically to the head, not separate ear balls.
- vertices=[];faces=[];n=112;nr=28;cy=1.516;cz=.053
+ vertices=[];faces=[];n=112;nr=28;cy=1.517;cz=.053
  def point(r,a,front):
   c=math.cos(a);s=math.sin(a)
-  y=cy+r*.0295*c*(1-.06*s)
-  z=cz+r*.0175*s*(1+.08*c)+r*.0021*(1-c)*.5
+  y=cy+r*.0270*c*(1-.06*s)
+  z=cz+r*.0152*s*(1+.08*c)+r*.0021*(1-c)*.5
   root=skull_x(y,z)-.0017
   if front:
-   helix=.0113*math.exp(-((r-.83)/.105)**2)
-   concha=.0010+.0018*r
-   anti=.0050*math.exp(-((r-.45)/.095)**2)*(1-.60*max(0,s))
-   tragus=.0040*math.exp(-((angle_delta(a,math.pi/2))/.34)**2)*math.exp(-((r-.57)/.20)**2)
+   # Open C-shaped helix and bifurcating cartilage, not concentric ovals.
+   helix_gate=1-.88*math.exp(-(angle_delta(a,math.pi/2)/.64)**2)
+   helix=.0108*helix_gate*math.exp(-((r-(.82-.035*s))/.105)**2)
+   concha=.0030+.0006*r
+   Y=r*c;Z=r*s
+   def curve_distance(path):
+    result=10
+    for j in range(len(path)-1):
+     ay,az=path[j];by,bz=path[j+1];dy=by-ay;dz=bz-az
+     t=max(0,min(1,((Y-ay)*dy+(Z-az)*dz)/(dy*dy+dz*dz)))
+     result=min(result,math.hypot(Y-ay-t*dy,Z-az-t*dz))
+    return result
+   main_curve=[(-.47,.13),(-.24,-.23),(.06,-.35),(.34,-.32),(.60,-.10)]
+   upper_fork=[(.08,-.34),(.30,-.09),(.51,.10),(.60,.27)]
+   anti=.0042*math.exp(-(curve_distance(main_curve)/.105)**2)+.0027*math.exp(-(curve_distance(upper_fork)/.09)**2)
+   tragus=.0047*math.exp(-((Y+.07)/.25)**2-((Z-.52)/.14)**2)
    extension=(helix+concha+anti+tragus)*sm((1-r)/.08)
-   x=root+extension
-  else:x=root-.0024*(1-r*r)
-  return (sign*x,y,z)
+   back_shell=.0045*(math.sin(math.pi*r)**1.2)
+   x=root+max(extension,back_shell+.0012)
+  else:x=root+.0045*(math.sin(math.pi*r)**1.2)
+  # Human pinnae incline forward. The camera behind the head sees the
+  # smooth posterior shell rather than staring into a sideways ear bowl.
+  angle=-sign*math.radians(20);xc=sign*(skull_x(cy,cz)-.003)
+  dx=sign*x-xc;dz=z-cz
+  xx=xc+math.cos(angle)*dx+math.sin(angle)*dz-sign*.0038
+  zz=cz-math.sin(angle)*dx+math.cos(angle)*dz
+  return (xx,y,zz)
  for side in [True,False]:
   for j in range(nr+1):
    r=max(.001,j/nr)
@@ -138,6 +171,13 @@ def create_head(parts=None,name='Velora reference head and neck',voxel=.00085,ta
  bpy.context.view_layer.objects.active=owned[0];bpy.ops.object.join();obj=bpy.context.object;obj.name=name
  mod=obj.modifiers.new('Continuous sculpted head neck and ear skin','REMESH');mod.mode='VOXEL';mod.voxel_size=voxel;mod.use_smooth_shade=True;apply(obj,mod)
  mod=obj.modifiers.new('Sculpt surface relaxation','SMOOTH');mod.factor=.30;mod.iterations=2;apply(obj,mod)
+ # Fair the skull-to-nape transition as one continuous soft-tissue surface.
+ group=obj.vertex_groups.new(name='Nape continuity')
+ for v in obj.data.vertices:
+  x,y,z=v.co
+  weight=window(y,1.415,1.445,1.510,1.540)*(1-sm((z-.055)/.045))*(1-sm((abs(x)-.050)/.025))
+  if weight>.001:group.add([v.index],weight,'REPLACE')
+ mod=obj.modifiers.new('Natural occipital and nape transition','SMOOTH');mod.factor=.70;mod.iterations=340;mod.vertex_group=group.name;apply(obj,mod)
  obj.data.calc_loop_triangles();triangles=len(obj.data.loop_triangles)
  if triangles>target_triangles:
   mod=obj.modifiers.new('Preserve sculpt curvature for product mesh','DECIMATE');mod.ratio=target_triangles/triangles;mod.use_collapse_triangulate=True;apply(obj,mod)
@@ -160,12 +200,12 @@ def studio(obj):
  world=bpy.data.worlds.new('Neutral studio') if not scene.world else scene.world;scene.world=world;world.use_nodes=True
  nodes=world.node_tree.nodes;links=world.node_tree.links;nodes.clear()
  out=nodes.new('ShaderNodeOutputWorld');mix=nodes.new('ShaderNodeMixShader');lp=nodes.new('ShaderNodeLightPath')
- amb=nodes.new('ShaderNodeBackground');amb.inputs[0].default_value=(.86,.86,.86,1);amb.inputs[1].default_value=.32
- bg=nodes.new('ShaderNodeBackground');bg.inputs[0].default_value=(.87,.87,.87,1);bg.inputs[1].default_value=1
+ amb=nodes.new('ShaderNodeBackground');amb.inputs[0].default_value=(.86,.86,.86,1);amb.inputs[1].default_value=.22
+ bg=nodes.new('ShaderNodeBackground');bg.inputs[0].default_value=(.87,.87,.87,1);bg.inputs[1].default_value=1.65
  links.new(lp.outputs['Is Camera Ray'],mix.inputs[0]);links.new(amb.outputs[0],mix.inputs[1]);links.new(bg.outputs[0],mix.inputs[2]);links.new(mix.outputs[0],out.inputs[0])
  bpy.ops.object.camera_add();cam=bpy.context.object;cam.data.type='ORTHO';cam.data.ortho_scale=.374;scene.camera=cam
  target=(0,1.477,.078)
- for name,power,loc,size in [('Soft key',36,(-.50,2.02,.75),.65),('Face fill',12,(.64,1.68,.70),.85),('Rim',20,(.45,1.95,-.65),.70)]:
+ for name,power,loc,size in [('Soft key',30,(-.50,2.02,.75),.65),('Face fill',5,(.64,1.68,.70),.85),('Rim',17,(.45,1.95,-.65),.70)]:
   bpy.ops.object.light_add(type='AREA',location=loc);light=bpy.context.object;light.name=name;light.data.energy=power;light.data.shape='DISK';light.data.size=size
   light.rotation_euler=(Vector(target)-light.location).to_track_quat('-Z','Y').to_euler()
  return scene,cam,target
@@ -182,7 +222,7 @@ def export(obj):
 
 def main():
  start=time.time();bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
- obj=create_head();scene,cam,target=studio(obj);meta=export(obj);print(json.dumps(meta),flush=True)
+ obj=create_head();scene,cam,target=studio(obj);set_camera(cam,(0,1.477,1.08),target);meta=export(obj);print(json.dumps(meta),flush=True)
  views=[('front',(0,1.477,1.08)),('side',(1,1.477,.078)),('back',(0,1.477,-.92)),('three-quarter',(.707,1.477,.785))]
  for name,location in views:
   set_camera(cam,location,target);scene.render.filepath=str(OUT/f'head-{name}.png');bpy.ops.render.render(write_still=True)
