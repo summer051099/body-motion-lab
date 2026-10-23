@@ -12,6 +12,10 @@ npm run build
 
 Open http://127.0.0.1:4173/. The previous accepted push-up is retained at `/pushup.html`; the earlier elbow experiment remains at `/elbow.html`. All three pages are included in the static build.
 
+## Public repository contents
+
+The public GitHub download includes the application source and runtime assets in `public/`. Generated `dist/` and `output/` build and review artifacts are excluded from the repository; recreate the production build with `npm run build`.
+
 ## Shared rig
 
 - 79 control/deformation bones: pelvis, segmented lumbar/thoracic/cervical chain, head, independent clavicles and scapulae, arms with twist stations, wrists, five articulated fingers per hand, hips, knees, ankle/foot, toe hinges and independent patellar drivers.
